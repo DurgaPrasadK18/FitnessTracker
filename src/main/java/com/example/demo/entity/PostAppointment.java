@@ -13,92 +13,62 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "appointments")
-public class Appointment {
+public class PostAppointment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	//Name
 	@NotBlank
 	@NotNull
 	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String name;
-	
-	//Age
 	@NotNull
 	@NotBlank
 	@Pattern(regexp = "[0-9 ]+")
 	private String age;
-	
-	//Email
 	@Email
 	@NotNull
 	@NotBlank
 	@Size(max = 30)
 	@Pattern(regexp = "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
 	private String email;
-	
-	//Mobile
 	@NotNull
 	@NotBlank
 	@Pattern(regexp = "[0-9 ]+")
 	@Size(max = 12)
-	private String mobile;
-	
-	//Address Line 1 
+	private String mobile; 
 	@NotNull
 	@NotBlank
 	@Size(max = 50)
 	private String addressLine1;
-	
-	//Address Line 2
 	@Size(max = 50)
 	private String addressLine2;
-	
-	//City
 	@NotBlank
 	@NotNull
 	@Size(max = 25)
 	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String city;
-	
-	//State
 	@NotBlank
 	@NotNull
 	@Size(max = 25)
 	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String state;
-	
-	//Country
 	@NotBlank
 	@NotNull
 	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String country;
-	
-	//ZIP/PIN
 	@NotBlank
 	@NotNull
 	@Pattern(regexp = "[0-9 ]+")
 	@Size(max = 7)
 	private String pin;
-	
-	//Trainer Preference
 	private String trainerPref;
-	
-	//Physio
 	@Pattern(regexp = "^(?:Yes|No)$")
 	private String physioReq;
-	
-	//Package
-	@Pattern(regexp = "^(?:Basic|Premium)$")
-	private String packageSel;
-	
-	//Weeks
+	@Pattern(regexp = "^(?:Basic|Standard)$")
+	private String selectpackage;
 	@Pattern(regexp = "[0-9 ]+")
 	private String weeks;
-	
-	//Amount
 	@Pattern(regexp = "[0-9 ]+")
 	private String amount;
 
@@ -206,12 +176,12 @@ public class Appointment {
 		this.physioReq = physioReq;
 	}
 
-	public String getPackageSel() {
-		return packageSel;
+	public String getPackage() {
+		return selectpackage;
 	}
 
-	public void setPackageSel(String packageSel) {
-		this.packageSel = packageSel;
+	public void setPackage(String selectpackage) {
+		this.selectpackage = selectpackage;
 	}
 
 	public String getWeeks() {

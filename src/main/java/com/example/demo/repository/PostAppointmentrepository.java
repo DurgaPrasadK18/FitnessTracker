@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entity.Appointment;
+import com.example.demo.entity.PostAppointment;
 
 @Repository
-public interface Appointmentrepository extends CrudRepository<Appointment, Integer> {
-	Appointment findById(int id);
-	List<Appointment> findAll();
+public interface PostAppointmentrepository extends CrudRepository<PostAppointment, Integer> {
+	PostAppointment findById(int id);
+	List<PostAppointment> findAll();
 	void deleteById(int id);
 
 }
